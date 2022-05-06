@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
@@ -8,15 +8,20 @@ import { BaseChartDirective } from 'ng2-charts';
   styles: [
   ]
 })
-export class GraphicBarraComponent {
+export class GraphicBarraComponent implements OnInit {
 
+  @Input() typeGraphic!: String;
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   public barChartOptions: ChartConfiguration['options'] = {
     responsive: true,
   };
+
   public barChartType: ChartType = 'bar';
-  
+
+  ngOnInit(): void {
+    console.log("value: "+this.typeGraphic);
+  }
 
   public barChartData: ChartData<'bar'> = {
     labels: ['2006', '2007', '2008', '2009', '2010', '2011', '2012'],
