@@ -1,1 +1,27 @@
-<p>donut-http works!</p>
+<h2>Redes sociales mas usadas</h2>
+<br>
+
+<div class="alert alert-info"
+     *ngIf="!donutData; else donutGrap">
+    Cargando data...
+</div>    
+<ng-template #donutGrap>
+    <div class="row">
+        <div class="col">
+            <div class="chart">
+                <canvas baseChart
+                        [data]="pieChartData"
+                        [type]="pieChartType">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</ng-template>
+    
+
+
+
+
+<!-- <ng-template #donutGraphic> -->
+    
+<!-- </ng-template> -->
