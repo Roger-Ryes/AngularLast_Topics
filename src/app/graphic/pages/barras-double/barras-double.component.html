@@ -2,9 +2,13 @@
 <hr>
 <div class="row">
     <div class="col-md-6">
-        <app-graphic-barra [typeGraphic]="bar"></app-graphic-barra>
-    </div>
+        <app-graphic-barra 
+            [typeGraphic]="typeGraphic1"
+            [barChartData]="proveedoresData"></app-graphic-barra>
+    </div> 
     <div class="col-md-6">
-        <app-graphic-barra></app-graphic-barra>
+        <app-graphic-barra
+            [typeGraphic]="typeGraphic2"
+            [barChartData]="productoData"></app-graphic-barra>
     </div>
 </div>

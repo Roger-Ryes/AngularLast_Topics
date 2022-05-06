@@ -10,20 +10,24 @@ import { ChartData } from 'chart.js';
 })
 export class BarrasDoubleComponent {
 
-  proveedoresData: ChartData = {
+  typeGraphic1: string = "bar";
+
+  proveedoresData: ChartData<'bar'> = {
+    labels: ["", "", "", "", ""],
     datasets: [
       { data: [100, 200, 300, 400, 500], label: 'Vendedor A' },
-      { data: [50, 250, 30, 450, 200], label: 'Vendedor B' }
+      { data: [50, 250, 30, 450, 200], label: 'Vendedor B' },
     ]
-  }
+  };
 
 
-  proveedoresLabels: string[] = ['2021', '2022', '2023', '2024', '2025'];
+  typeGraphic2: string = "circle";
 
-  productoData: ChartData = {
+  productoData: ChartData<'bar'> = {
+    labels: ['2021', '2022', '2023', '2024', '2025'],
     datasets: [
       { data: [200, 300, 400, 300, 100], label: 'Carros', backgroundColor: 'blue' },
     ]
-  };
+  }
 
 }
