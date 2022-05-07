@@ -8,7 +8,8 @@
         </div>
         <div class="col-auto">
             <input class="form-control"
-                    formControlName="name">
+                    formControlName="name"
+                    errorMsg>
         </div>
         <div class="col-auto">
             <span *ngIf="haveError('name')" class="form-text">Este campo es requerido</span>

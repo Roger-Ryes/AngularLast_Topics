@@ -32,3 +32,7 @@ https://getbootstrap.com/docs/5.1/getting-started/introduction/
 
 ### Agular Directivas
 https://angular.io/guide/attribute-directives
+
+## Creacion Directiva
+
+     ng g d path --skipTests
