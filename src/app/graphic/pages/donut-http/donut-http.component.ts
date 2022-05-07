@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { GraphicsService } from '../../services/graphics.service';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 @Component({
@@ -7,7 +7,7 @@ import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
   styles: [
   ]
 })
-export class DonutHttpComponent implements OnInit {
+export class DonutHttpComponent implements AfterContentInit {
 
   donutData:any;
   dataLabels: string[]=[];
@@ -23,15 +23,19 @@ export class DonutHttpComponent implements OnInit {
   
   constructor(private graphicsService:GraphicsService) { }
 
-  ngOnInit(): void {
-    this.donutData = this.graphicsService.getUserSocialNetwork().subscribe(resp=>{
-      const ketData = Object.keys(resp);
-      const data = Object.values(resp);
-      ketData.forEach(e=>{this.dataLabels.push(e)});
-      data.forEach(e=>{this.dataSets.push(e)});
-      // console.log("la: "+this.dataLabels)
-      // console.log("Se: "+this.dataSets)
-    })
+  ngAfterContentInit(): void {
+    // this.donutData = this.graphicsService.getUserSocialNetwork().subscribe(resp=>{
+    //   const ketData = Object.keys(resp);
+    //   const data = Object.values(resp);
+    //   ketData.forEach(e=>{this.dataLabels.push(e)});
+    //   data.forEach(e=>{this.dataSets.push(e)});
+    //   // console.log("la: "+this.dataLabels)
+    //   // console.log("Se: "+this.dataSets)
+    // })
+    this.donutData = this.graphicsService.getUserSocialNetworkDonutData().subscribe(({label, dataset})=>{
+      label.forEach(e=>{ this.dataLabels.push(e) });
+      dataset.forEach(e=>{ this.dataSets.push(e) });
+    });
   }
 
 }
