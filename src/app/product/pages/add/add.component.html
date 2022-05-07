@@ -14,7 +14,7 @@
             <span   *ngIf="haveError('name')"
                     errorMsg
                     [message]="msg"
-                    color="blue">
+                    [color]="color">
                     </span>
         </div>
     </div>
@@ -24,6 +24,14 @@
             <button class="btn btn-primary"
                     (click)="changeName()">
                 Guardar
+            </button>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <button class="btn btn-primary"
+                    (click)="changeColor()">
+                Color
             </button>
         </div>
     </div>

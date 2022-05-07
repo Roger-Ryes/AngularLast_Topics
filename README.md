@@ -36,3 +36,10 @@ https://angular.io/guide/attribute-directives
 ## Creacion Directiva
 
      ng g d path --skipTests
+
+## SETTER
+
+     // Setter, creo una funcion
+     @Input() set color(value: string) {
+          this.htmlElement.nativeElement.style.color = value;
+     };
