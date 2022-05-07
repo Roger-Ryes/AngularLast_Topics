@@ -10,12 +10,12 @@ export class ErrorMgDirective implements OnInit, OnChanges {
   public htmlElement: ElementRef<HTMLElement>;
   // Setter, creo una funcion
   @Input() set color(value: string) {
-    this.htmlElement.nativeElement.style.color = value;
     this._color = value;
+    this.setColor();
   };
   @Input() set message(value: string) {
-    this.htmlElement.nativeElement.innerText = (value) ? value : this._msg;
     this._msg = value;
+    this.setMessage();
   };
 
   constructor(private el: ElementRef<HTMLElement>) {
@@ -42,9 +42,9 @@ export class ErrorMgDirective implements OnInit, OnChanges {
   setStyle(): void {
     this.htmlElement.nativeElement.classList.add("form-text");
   }
-  // setColor(): void {
-  //   this.htmlElement.nativeElement.style.color = this._color;
-  // }
+  setColor(): void {
+    this.htmlElement.nativeElement.style.color = this._color;
+  }
   setMessage(): void {
     this.htmlElement.nativeElement.innerText = this._msg;
   }
