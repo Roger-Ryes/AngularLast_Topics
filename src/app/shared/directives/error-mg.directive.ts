@@ -1,9 +1,9 @@
-import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Directive({
   selector: '[errorMsg]'
 })
-export class ErrorMgDirective implements OnInit{
+export class ErrorMgDirective implements OnInit, OnChanges{
 
   public htmlElement: ElementRef<HTMLElement>;
   @Input() color: string = "red";
@@ -12,6 +12,10 @@ export class ErrorMgDirective implements OnInit{
   constructor( private el: ElementRef<HTMLElement>) { 
     this.htmlElement = el;
     console.log(el)
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    const msg = changes['message'].currentValue; 
+    this.htmlElement.nativeElement.innerText = msg;
   }
 
   ngOnInit(): void {

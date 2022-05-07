@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddComponent implements OnInit {
 
+  msg: string = "Este campo es requerido";
+
   myForm: FormGroup = this.fb.group({
     name: ['', [Validators.required]]
   });
@@ -20,5 +22,10 @@ export class AddComponent implements OnInit {
 
   haveError(field: string): boolean {
     return this.myForm.get(field)?.invalid && this.myForm.get('name')?.touched || false;
+  }
+
+  changeName(){
+    // console.log(this.myForm.get("name")?.value);
+    this.msg = this.myForm.get("name")?.value;
   }
 }
