@@ -43,3 +43,10 @@ https://angular.io/guide/attribute-directives
      @Input() set color(value: string) {
           this.htmlElement.nativeElement.style.color = value;
      };
+
+## Directiva Estructura personalizado
+Condiciones personalizados
+
+*customIf
+
+Se envia con * para enviar todo el componente, util para el 'viewContainer'

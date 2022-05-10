@@ -42,3 +42,12 @@
 <pre>valid: {{ myForm.valid }}</pre>
 <pre>invalid: {{ myForm.invalid }}</pre>
 <pre>touched: {{ myForm.get("name")?.touched }}</pre>
+
+<div class="row mt-5">
+    <div class="col">
+        <div class="alert alert-primary"
+             *customIf="!haveError('name')">
+            Todo Ok!
+        </div>
+    </div>
+</div>
