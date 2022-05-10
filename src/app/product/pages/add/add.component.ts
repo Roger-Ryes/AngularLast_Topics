@@ -22,8 +22,7 @@ export class AddComponent implements OnInit {
   }
 
   haveError(field: string): boolean {
-    return true 
-    // this.myForm.get(field)?.invalid && this.myForm.get('name')?.touched || false;
+    return this.myForm.get(field)?.invalid && this.myForm.get('name')?.touched || false;
   }
 
   changeName(){

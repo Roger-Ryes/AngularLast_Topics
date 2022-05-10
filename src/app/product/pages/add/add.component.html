@@ -11,7 +11,7 @@
                     formControlName="name">
         </div>
         <div class="col-auto">
-            <span   *ngIf="haveError('name')"
+            <span   [isValid]="!haveError('name')"
                     errorMsg
                     [message]="msg"
                     [color]="color">
@@ -39,5 +39,6 @@
 
 <h3 class="mt-5">Formulario</h3>
 <pre>Value: {{ myForm.value | json }}</pre>
-<pre>Value: {{ myForm.valid }}</pre>
-<pre>Value: {{ myForm.invalid }}</pre>
+<pre>valid: {{ myForm.valid }}</pre>
+<pre>invalid: {{ myForm.invalid }}</pre>
+<pre>touched: {{ myForm.get("name")?.touched }}</pre>

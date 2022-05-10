@@ -17,6 +17,13 @@ export class ErrorMgDirective implements OnInit, OnChanges {
     this._msg = value;
     this.setMessage();
   };
+  @Input() set isValid(valid: boolean){
+    if(valid){
+      this.htmlElement.nativeElement.classList.add("hidden");
+    }else{
+      this.htmlElement.nativeElement.classList.remove("hidden");
+    }
+  }
 
   constructor(private el: ElementRef<HTMLElement>) {
     this.htmlElement = el;
